@@ -1,0 +1,24 @@
+.main div {
+  height: 1px;
+  margin-top: 2.2px;
+  font-size: 0.8em;
+
+  &.just {
+    width: 40px;
+    border-top: 1px solid #CC0000;
+  }
+
+  &:not(.just) {
+    width: 20px;
+    border-top: 1px solid black;
+  }
+
+  &.half {
+    width: 25px;
+  }
+
+  &::after {
+    content: attr(title);
+    margin-left: 27px;
+  }
+}
