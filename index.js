@@ -4,24 +4,32 @@ const zooms = {
 
 const divs = 150;
 
-async function setZoom() {
-  const { model } = await navigator.userAgentData.getHighEntropyValues(['model']).catch(() => ({}));
-  const zoom = zooms[model];
-  if (!zoom) {
-    return false;
-  }
-  document.body.style.zoom = zoom;
-  return true;
+async function getModel() {
+  return navigator.userAgentData.getHighEntropyValues(['model']);
 }
 
-async function initialize() {
-  const supported = await setZoom();
-  if (!supported) {
-    document.body.textContent = 'This model is not supported.';
-    return;
+function setZoom({ model }) {
+  const zoom = zooms[model];
+  if (!zoom) {
+    throw new Error('This model is not supported.');
   }
+  document.body.style.zoom = zoom;
+}
+
+function buildHtml() {
   const [$main] = document.getElementsByClassName('main');
   $main?.append(...[...Array(divs)].map(() => document.createElement('div')));
 }
 
-document.addEventListener('DOMContentLoaded', initialize);
+function showError(err) {
+  document.body.textContent = err;
+}
+
+function main() {
+  getModel()
+    .then(setZoom)
+    .then(buildHtml)
+    .catch(showError);
+}
+
+document.addEventListener('DOMContentLoaded', main);
