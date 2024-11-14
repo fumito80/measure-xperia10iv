@@ -1,3 +1,6 @@
+export default null;
+declare const self: ServiceWorkerGlobalScope;
+
 const cacheName = 'ruler-xperia-ix';
 
 const urlsToCache = [
@@ -5,8 +8,8 @@ const urlsToCache = [
   'index.css',
   'index.js',
   'sw.js',
-  'favicon192.png',
   'favicon.png',
+  'favicon192.png',
 ];
 
 self.addEventListener('install', (e) => {

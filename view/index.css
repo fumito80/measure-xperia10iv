@@ -1,4 +1,6 @@
 body {
+  margin: 0;
+  padding: 0;
   touch-action: pan-x pan-y;
 }
 
@@ -30,6 +32,10 @@ body {
         text-align: center;
         margin-left: 25px;
       }
+    }
+
+    &:first-child {
+      margin-top: -0.5px;
     }
   }
 }
