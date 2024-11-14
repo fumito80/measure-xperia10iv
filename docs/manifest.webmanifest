@@ -1,0 +1,19 @@
+{
+  "name": "Ruler for Xperia10 IV",
+  "short_name": "Ruler",
+  "icons": [
+    {
+      "src": "favicon192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone",
+  "theme_color": "#354C5F"
+}
