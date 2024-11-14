@@ -1,5 +1,6 @@
 :root {
-  --color-bg: white;
+  --color-fore: white;
+  --color-bg: black;
   --color-tick: black;
   --color-tick10: #CC0000;
   --color-number: #222222;
@@ -17,7 +18,19 @@ body {
   background-color: var(--color-bg);
   counter-reset: number -1;
 
-  & div {
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 55px;
+    height: 100%;
+    background-color: var(--color-fore);
+  }
+
+  > div {
+    position: relative;
+    z-index: 1;
     width: 20px;
     height: 1px;
     margin-top: 2.2px;
