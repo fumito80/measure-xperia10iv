@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  touch-action: pan-x pan-y;
+}
+
+.main {
+
+  counter-reset: number -1;
+
+  & div {
+    width: 20px;
+    height: 1px;
+    margin-top: 2.2px;
+    border-top: 1px solid black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.8em;
+
+    &:nth-child(5n + 1) {
+      width: 25px;
+    }
+
+    &:nth-child(10n + 1) {
+      width: 42px;
+      border-color: #CC0000;
+
+      &::after {
+        counter-increment: number 1;
+        content: counter(number);
+        display: block;
+        width: 20px;
+        text-align: center;
+        margin-left: 25px;
+      }
+    }
+
+    &:first-child {
+      margin-top: -0.5px;
+    }
+  }
+}
