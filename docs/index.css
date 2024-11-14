@@ -1,3 +1,10 @@
+:root {
+  --color-bg: white;
+  --color-tick: black;
+  --color-tick10: #CC0000;
+  --color-number: #222222;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,13 +13,14 @@ body {
 
 .main {
 
+  background-color: var(--color-bg);
   counter-reset: number -1;
 
   & div {
     width: 20px;
     height: 1px;
     margin-top: 2.2px;
-    border-top: 1px solid black;
+    border-top: 1px solid var(--color-tick);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.8em;
 
@@ -22,7 +30,7 @@ body {
 
     &:nth-child(10n + 1) {
       width: 42px;
-      border-color: #CC0000;
+      border-color: var(--color-tick10);
 
       &::after {
         counter-increment: number 1;
@@ -31,11 +39,13 @@ body {
         width: 20px;
         text-align: center;
         margin-left: 25px;
+        color: var(--color-number);
       }
     }
 
     &:first-child {
       margin-top: -0.5px;
+      border-color: transparent;
     }
   }
 }
