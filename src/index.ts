@@ -1,15 +1,16 @@
 const zooms = {
   A202SO: '168.4%',
-};
+  default: '168.4%',
+} as const;
 
 const divs = 150;
 
 async function getModel() {
-  return navigator.userAgentData.getHighEntropyValues(['model']);
+  return navigator.userAgentData?.getHighEntropyValues(['model']);
 }
 
-function setZoom({ model }) {
-  const zoom = zooms[model];
+function setZoom(uaDataValues: Awaited<ReturnType<typeof getModel>>) {
+  const zoom = zooms[uaDataValues?.model as keyof typeof zooms] ?? zooms.default;
   if (!zoom) {
     throw new Error('This model is not supported.');
   }
@@ -21,8 +22,8 @@ function buildHtml() {
   $main?.append(...[...Array(divs)].map(() => document.createElement('div')));
 }
 
-function showError(err) {
-  document.body.textContent = err;
+function showError(reason: any) {
+  document.body.textContent = reason.message;
 }
 
 function main() {
