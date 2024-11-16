@@ -1,7 +1,7 @@
 export default null;
 declare const self: ServiceWorkerGlobalScope;
 
-const cacheName = 'ruler-xperia-ix';
+const cacheName = 'x-ruler-1.0.0';
 
 const urlsToCache = [
   'index.html',
