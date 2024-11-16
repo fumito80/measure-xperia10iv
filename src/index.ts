@@ -33,7 +33,7 @@ function main() {
     .catch(showError);
 }
 
-document.addEventListener('DOMContentLoaded', main);
+main();
 
 // for PWA
 if ('serviceWorker' in navigator) {
